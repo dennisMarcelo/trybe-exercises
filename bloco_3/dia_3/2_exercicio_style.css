@@ -1,0 +1,46 @@
+.display-block{
+    display: block;
+}
+
+.super-mario{
+    width: 150px;
+    
+}
+
+.goomba{
+    width:150px;
+    margin-bottom:50px ;
+}
+
+/*-------------------------------bloco---------------------------------------*/
+.bowser-baloon{
+   width:500px;
+   height: 400px;
+   background-color: blue;
+   padding: 20px;
+
+}
+
+.bowser-baloon p, .bowser-baloon img {
+    position: absolute;
+}
+
+.word{
+    z-index: 3;
+    margin-left:10px;
+    margin-top:40px;
+    
+}
+
+.baloon{
+    z-index: 2;
+    width: 200px;
+}
+
+.bowser{
+    width:300px;
+    z-index: 1;
+    margin-left: 150px;
+}
+
+
