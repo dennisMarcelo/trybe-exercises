@@ -1,0 +1,94 @@
+/*Tópico 1*/
+ol
+{
+    background-color:yellow
+}
+
+ol li:nth-child(odd)
+{
+  color: green
+}
+
+/*
+  consultei o repositório do xieranmaya
+  link: https://github.com/xieranmaya/blog/issues/12
+*/
+ol li:not(:first-child):not(:nth-child(2n+4)):not(:nth-child(3n+6)):not(:nth-child(5n+10))
+{
+  text-transform: uppercase;
+}
+
+li
+{
+  font-size:20px
+}
+
+li em
+{
+  font-weight: 600;
+}
+
+h1,h2,h3,h4,h5,h6
+{
+  color: red;
+}
+
+h1 em
+{
+  font-size:40px;
+  border: 1px solid black
+}
+
+ul:first-of-type li:nth-child(-n+3)
+{
+  color:blue
+}
+
+ul:first-of-type li:nth-child(2)
+{
+  background-color:pink
+}
+
+ul:nth-of-type(2) li:hover
+{
+  font-weight:600
+}
+
+ul:nth-of-type(2) li:nth-child(1):hover
+{
+  color: orange;
+}
+
+ul:nth-of-type(2) li:nth-child(2):hover
+{
+  color: green;
+}
+
+ul:nth-of-type(2) li:nth-child(3):hover
+{
+  color: black;
+}
+
+ul:nth-of-type(2) li:nth-child(4):hover
+{
+  color: yellow;
+}
+
+ul:nth-of-type(2) li:nth-child(5):hover
+{
+  color: green;
+}
+
+/*
+ok 1 - Faça com que todos os itens de Listas Ordenadas tenham uma cor de fundo amarela. Se a numeração do item for PAR, faça a cor de fonte ser verde. Se o número for considerado primo, utilize a propriedade text-transform para deixar o texto maiúsculo. (Dica: combinar classes pode ser útil aqui).
+
+ok 2 - Faça todas as tags Header (h1, h2...) possuírem cor de fonte vermelha e, se alguma delas estiver em itálico, aumente seu tamanho para 40px e acrescente uma borda de 1px preta e sólida.
+
+ok 3 - Faça todas as li's terem 20px de tamanho de fonte e, para todo texto em itálico dentro de alguma li, utilize a propriedade font-weight para deixá-lo negrito.
+
+ok 4 - Na listagem de linguagens de programação, faça com que as 3 primeiras da lista possuam cor de fonte azul e, se alguma possuir "java*" no texto, utilize uma cor de fundo rosa.
+
+ok 5 - (Bônus) Para cada link na lista de aliados da pessoa desenvolvedora, faça com que ao passar o mouse sobre cada um, o texto fique em negrito e assuma a cor de fonte "temática do site"
+  Dica 1: Utilize o seletor :hover para controlar o passar do mouse.
+  Dica 2: Sugestão de cores padrão. StackOverflow (laranja), W3Schools (verde), MDN (preta), DevDocs (amarela), Trybe (verde).
+*/
