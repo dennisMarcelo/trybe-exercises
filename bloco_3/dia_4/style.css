@@ -1,0 +1,114 @@
+html, body{
+    background-color: #caf0f8;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    text-align: center;
+    background-color: #0096c7;
+    padding: 20px;
+}
+
+h1, h2, h3{
+    margin:0;
+}
+
+nav{
+    background-color: #03045e;
+    padding: 7px 0;
+}
+
+nav ul{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+nav ul li{
+    margin:0px;
+    display: inline-block;
+}
+
+nav ul li a {
+    background-color:#0077b6;
+    text-decoration :none;
+    padding: 7px 20px;
+    color: white;
+}
+nav ul li a:hover{
+    background-color:rgb(116, 203, 206);
+}
+
+main{
+    background-color: #ade8f4;
+    width: 70%;
+    margin: auto;
+    padding: 0 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.404)
+}
+
+main h2{
+    padding: 20px 0;
+}
+
+section h3 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.informacoe_gerais{
+    border: 2px solid black;
+    width: 27%;
+    text-align: center;
+    float: right;
+    margin-left: 10px;
+
+}
+
+.informacoe_gerais img{
+    width: 90%;
+}
+
+.informacoes_olhos img{
+    width:30%;
+    float: left;
+    margin-right: 10px;
+}
+
+.informacoes_forca{
+    padding-top: 20px;
+    clear: both;
+}
+.informacoes_forca img{
+    width: 30%;
+    float: right;
+    margin-left:10px ;
+    clear: both;
+}
+
+.referencias {
+    padding-bottom: 10px;
+    clear: both;
+}
+
+.vidio{
+    clear: both;
+}
+iframe{
+    display: block;
+    margin: auto;
+    width: 70%;
+    height:400px;
+    box-shadow: 0 0 8px #666;
+}
+footer{
+    text-align: center;
+    background-color:#03045e;
+    color: white;
+    padding:30px ;
+}
+
+footer p {
+    margin:0;
+}
+
