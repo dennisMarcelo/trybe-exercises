@@ -1,8 +1,8 @@
 //Escreva um programa que receba o nome de uma peça de xadrez e retorne os movimentos que ela faz.
 
-let peca = "rainha"
+let peca = "Rainha"
 
-switch (peca) {
+switch (peca.toLowerCase()) {
     case "rei":
         console.log("movimento uma casa em qualquer direção");
         break;
