@@ -32,7 +32,7 @@ function pushDaysOfMonth () {
 	})
 }
 
-function addBtnFryday(feriados){
+function addBtnHoliday(feriados){
 	let btnContainer = document.querySelector(".buttons-container");
 	let dayHoliday = document.querySelectorAll(".holiday")
 	let btnferiados = document.createElement("button");
@@ -51,7 +51,27 @@ function addBtnFryday(feriados){
 	btnContainer.appendChild(btnferiados)
 }
 
+function addBtnFriday(Friday){
+	let btnContainer = document.querySelector(".buttons-container");
+	let dayFriday = document.querySelectorAll(".friday");
+	let btnFriday = document.createElement("button");
+	
+	btnFriday.id = "btn-friday";
+	btnFriday.innerText = Friday;
+	btnFriday.addEventListener("click", () => {
+		if(dayFriday[1].style.color === "green") {
+			dayFriday.forEach(e => e.style.color = "#777")
+		} else {
+			dayFriday.forEach(e => e.style.color = "green")
+		}
+
+	})
+
+	btnContainer.appendChild(btnFriday)
+}
+
 createDaysOfTheWeek( );
 pushDaysOfMonth();
-addBtnFryday("Feriados")
+addBtnHoliday("Feriados")
+addBtnFriday("Sexta-feira")
 // Escreva seu código abaixo.
