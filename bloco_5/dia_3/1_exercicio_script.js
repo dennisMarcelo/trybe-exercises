@@ -29,13 +29,29 @@ function pushDaysOfMonth () {
 
 		$li.innerText = e;
 		ulDays.appendChild($li);
-
-		
-
-		console.log($li);
 	})
 }
 
+function addBtnFryday(feriados){
+	let btnContainer = document.querySelector(".buttons-container");
+	let dayHoliday = document.querySelectorAll(".holiday")
+	let btnferiados = document.createElement("button");
+
+	btnferiados.id = "btn-holiday";
+	btnferiados.innerText = feriados;
+	btnferiados.addEventListener("click", () => {
+		if(dayHoliday[1].style.backgroundColor === "yellow") {
+			dayHoliday.forEach(e => e.style.backgroundColor = "rgb(238,238,238)")
+		} else {
+			dayHoliday.forEach(e => e.style.backgroundColor = "yellow")
+		}
+
+	})
+
+	btnContainer.appendChild(btnferiados)
+}
+
 createDaysOfTheWeek( );
-// Escreva seu código abaixo.
 pushDaysOfMonth();
+addBtnFryday("Feriados")
+// Escreva seu código abaixo.
