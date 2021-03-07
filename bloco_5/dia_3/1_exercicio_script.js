@@ -91,11 +91,31 @@ function zooOutDay() {
 	})
 }
 
+function addTaks(textTask) {
+	let task = document.querySelector(".my-tasks");
+	let span = document.createElement("span");
+
+	span.innerText = textTask;
+	task.appendChild(span)
+}
+
+function addColor(color) {
+	let task = document.querySelector(".my-tasks");
+	let div = document.createElement("div")
+
+	div.style.backgroundColor = color;
+	div.className = "tasks";
+
+	task.appendChild(div);
+}
+
 createDaysOfTheWeek();
 pushDaysOfMonth();
-addBtnHoliday("Feriados")
-addBtnFriday("Sexta-feira")
+addBtnHoliday("Feriados");
+addBtnFriday("Sexta-feira");
 zoomDay();
 zooOutDay();
-//Exercício 7:
+//Exercício 9:
+addTaks("Projeto");
+addColor("green")
 // Escreva seu código abaixo.
