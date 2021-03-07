@@ -109,13 +109,25 @@ function addColor(color) {
 	task.appendChild(div);
 }
 
+function taskSlected() {
+	let divTask = document.querySelector(".tasks");
+	divTask.addEventListener("click", (e) => {
+		if(e.target.className === "tasks selected"){
+			e.target.className = "tasks";
+		}else{
+			e.target.className += " selected";
+		}
+	})
+}
+
 createDaysOfTheWeek();
 pushDaysOfMonth();
 addBtnHoliday("Feriados");
 addBtnFriday("Sexta-feira");
 zoomDay();
 zooOutDay();
-//Exercício 9:
 addTaks("Projeto");
 addColor("green")
+//Exercício 9:
+taskSlected()
 // Escreva seu código abaixo.
