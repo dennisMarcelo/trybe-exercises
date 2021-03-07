@@ -8,8 +8,8 @@ function createDaysOfTheWeek() {
 		dayListItem.innerHTML = days;
 
 		weekDaysList.appendChild(dayListItem);
-	};
-};
+	}
+}
 
 function pushDaysOfMonth () {
 	const dezDaysList = [29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
@@ -55,23 +55,47 @@ function addBtnFriday(Friday){
 	let btnContainer = document.querySelector(".buttons-container");
 	let dayFriday = document.querySelectorAll(".friday");
 	let btnFriday = document.createElement("button");
-	
+	let daysFriday = [4, 11, 18, 25];
 	btnFriday.id = "btn-friday";
 	btnFriday.innerText = Friday;
 	btnFriday.addEventListener("click", () => {
-		if(dayFriday[1].style.color === "green") {
-			dayFriday.forEach(e => e.style.color = "#777")
+		if(dayFriday[1].innerText === "Sextou \o/") {
+			dayFriday.forEach((e, i) => {
+				e.innerText = daysFriday[i];
+			})
 		} else {
-			dayFriday.forEach(e => e.style.color = "green")
+			dayFriday.forEach(e => e.innerText = "Sextou \o/")
 		}
 
-	})
+	} )
 
 	btnContainer.appendChild(btnFriday)
 }
 
-createDaysOfTheWeek( );
+function zoomDay() {
+	let days = document.querySelectorAll('.day');
+	days.forEach((e) => {
+		e.addEventListener('mouseover', (e) => {
+			e.target.style.fontSize = "30px"
+		})
+
+	}, false)
+}
+
+function zooOutDay() {
+	let days = document.querySelectorAll('.day');
+	days.forEach((e)=> {
+		e.addEventListener('mouseout', (e)=> {
+			e.target.style.fontSize = "20px"
+		})
+	})
+}
+
+createDaysOfTheWeek();
 pushDaysOfMonth();
 addBtnHoliday("Feriados")
 addBtnFriday("Sexta-feira")
+zoomDay();
+zooOutDay();
+//Exercício 7:
 // Escreva seu código abaixo.
