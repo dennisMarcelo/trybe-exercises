@@ -120,6 +120,33 @@ function taskSlected() {
 	})
 }
 
+function isSelected() {
+	let colorTask = document.querySelector(".selected");
+	let color = null;
+	
+	if(colorTask === null){
+		color = "rgb(119,119,119)";
+	} else {
+		color = colorTask.style.backgroundColor;
+	}
+	return color; 
+}
+
+function markDaytask() {
+	let day = document.querySelectorAll(".day")
+	
+	day.forEach((e) => {
+		e.addEventListener("click", (i) => {
+			if(i.target.style.color === isSelected()) {
+				i.target.style.color = "rgb(119,119,119)"
+			} else {
+				i.target.style.color = isSelected();
+			} 
+			console.log(i.target.style.color);
+		})
+	})
+}
+
 createDaysOfTheWeek();
 pushDaysOfMonth();
 addBtnHoliday("Feriados");
@@ -128,6 +155,7 @@ zoomDay();
 zooOutDay();
 addTaks("Projeto");
 addColor("green")
-//Exercício 9:
 taskSlected()
+//Exercício 10:
+markDaytask() 
 // Escreva seu código abaixo.
