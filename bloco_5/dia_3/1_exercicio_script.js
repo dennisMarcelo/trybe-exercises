@@ -147,6 +147,38 @@ function markDaytask() {
 	})
 }
 
+function addTasksToTaskList() {
+	let taskList = document.querySelector(".task-list");
+	let btnAdd = document.getElementById("btn-add");
+	let taskInput = document.getElementById("task-input");
+
+	btnAdd.addEventListener("click", (e) =>{
+		if(taskInput.value != ""){
+			let li = document.createElement("li");
+			li.innerText = taskInput.value;
+			taskList.appendChild(li)
+			taskInput.value = ""
+		} else {
+			alert("Campo de novo compromisso vazio, por favor digite um valor!")
+		}
+	});
+
+	taskInput.addEventListener("keydown", (e) =>{
+		if(e.keyCode == 13) {
+			if(taskInput.value != ""){
+				let li = document.createElement("li");
+				li.innerText = taskInput.value;
+				taskList.appendChild(li)
+				taskInput.value = ""
+			} else {
+				alert("Campo de novo compromisso vazio, por favor digite um valor!")
+			}	
+		}
+	})
+
+	console.log(taskInput);
+}
+
 createDaysOfTheWeek();
 pushDaysOfMonth();
 addBtnHoliday("Feriados");
@@ -156,6 +188,7 @@ zooOutDay();
 addTaks("Projeto");
 addColor("green")
 taskSlected()
-//Exercício 10:
 markDaytask() 
+//Exercício bonus:
+addTasksToTaskList()
 // Escreva seu código abaixo.
