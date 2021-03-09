@@ -1,0 +1,13 @@
+.box {
+    width: 500px;
+    margin: auto;
+}
+
+.inputs h1 {
+    text-align: center; 
+}
+
+.inputs input {
+    margin: auto;
+    display: block;
+}
