@@ -1,0 +1,74 @@
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+* {
+    font-size:16px;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body{
+    margin: 10px;
+}
+
+h1{
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.6em;
+}
+
+p{
+    font-size: 1.3em;
+}
+
+li {
+    font-size: 1.2em;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+
+header {
+    width: 100%;
+}
+article, footer {
+    width: 100%;
+}
+
+@media screen and (min-width: 699px) and (max-width:1439px) {
+    * {
+        font-size:20px;
+    }
+
+    body {
+        margin: 30px
+    }
+
+}
+
+@media screen and (min-width:1440px) {
+    * {
+        font-size: 32px;
+    }
+
+    body {
+        margin: 40px
+    }
+}
