@@ -1,0 +1,96 @@
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+    <title>Formulário</title>
+</head>
+<body class="bg-secondary">
+    <main class="container bg-light">
+        <form id="myForm">
+            <fieldset>
+                <legend>Dados Pessoais</legend>
+                <div class="mb-3">
+                    <label class="form-label" for="name">Nome:</label>
+                    <input type="text" id='name' name="name" class="form-control" maxlength="40" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="email">Email:</label>
+                    <input type="email " id='email' name="email" class="form-control" maxlength="50" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="cpf">CPF:</label>
+                    <input type="text" id='cpf' name="cpf" class="form-control" maxlength="11" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="endereco">Endereço:</label>
+                    <input type="text" id='endereco' name="endereco" class="form-control" maxlength="200" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="cidade">Cidade:</label>
+                    <input type="text" id='cidade' name="cidade" class="form-control" maxlength="28" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label" for="estados">Estado:</label>
+                    <select class="form-select" name="estados" id="estados" required>
+                    </select>
+                </div>
+                
+                <div class="mb-3">
+                    <label>Moradia:</label>
+                    <div class="form-check">
+                        <input class="form-check-input ms-1" type="radio" name="moradia" id="casa" value="casa" checked>
+                        <label class="form-check-label ms-1" for="casa">Casa</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input ms-1" type="radio" name="moradia" id="apartamento" value="apartamento" >
+                        <label class="form-check-label ms-1" for="apartamento">Apartamento</label>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Ultimo emprego</legend>
+
+                <div class=" mb-3">
+                    <label class="form-label" for="resumo">Resumo:</label>
+                    <textarea id="resumo" placeholder="Digite um resumo do último emprego" class="form-control" maxlength="1000" required rows="5"></textarea>
+                </div>
+
+                <div class=" mb-3">
+                    <label class="form-label" for="cargo">Cargo:</label>
+                    <input type="text" id="cargo" name="cargo" class="form-control" maxlength="40" required>
+                </div>
+
+                <div class=" mb-3">
+                    <label class="form-label" for="descricao">Descrição:</label>
+                    <input type="text" id="descricao" name="descricao" class="form-control" maxlength="40" placeholder="Descrição do último cargo" required>
+                </div>
+
+                <div class=" mb-3">
+                    <label class="form-label" for="dataInicio">Data de Inicio:</label>
+                    <input type="text" id="datepicker" name="dataInicio"  required>
+                </div>
+            </fieldset>
+
+            <div class="text-center p-3">
+                <button class="btn btn-success mx-2" type="submit" id="btnEnviar">Enviar</button>
+                <button class="btn btn-danger mx-2" type="button" id='limpar'>Limpar dados</button>
+            </div>
+        </form>
+    </main>
+
+    <script type="text/javascript" src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+    <script src="script.js" type="text/javascript"></script>
+</body>
+</html>
