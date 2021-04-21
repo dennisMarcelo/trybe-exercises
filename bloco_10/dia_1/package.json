@@ -1,0 +1,15 @@
+{
+  "name": "dia_1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bloco7.test.js",
+  "scripts": {
+    "test": "jest --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^26.6.3"
+  }
+}
