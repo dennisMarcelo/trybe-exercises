@@ -1,0 +1,53 @@
+.App {
+  text-align: center;
+  background-color: #272c34;
+  height: 100vh;
+  color: #fff;
+}
+
+h1 {
+  margin :  0 0;
+}
+
+form {
+  margin: 20px auto 0;
+  width: 90%;
+  max-width: 900px;
+  min-height: 30%;
+  background-color: #222730;
+  box-shadow: 0px 0px 20px rgb(79, 33, 163);
+  border-radius: 60px;
+}
+
+.dado-pessoais {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-style: none;
+  
+}
+
+.moradia{
+  width: 81%;
+  text-align: left;
+}
+
+span {
+  display: block
+}
+
+.moradia label input {
+ width: 30px
+}
+
+input {
+  width: 80%;
+}
+
+select {
+  width: 81%;
+}
+
+input[name='nome']{
+  text-transform: uppercase;
+}
