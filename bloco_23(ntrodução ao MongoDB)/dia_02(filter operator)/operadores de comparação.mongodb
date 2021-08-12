@@ -1,0 +1,32 @@
+/*
+  #Utilizar os operadores de comparação
+  - $lt ( less than , menor que, <)
+  - $lte ( less than or equal , menor ou igual a, <=)
+  - $gt ( greater than , maior que, >)
+  - $gte ( greater than or equal , maior ou igual a, >=)
+  - $eq ( equal , igual a, =)
+  - $ne ( not equal , diferente de, !=, <>)
+  - $in ( in , dentro de)
+  - $nin ( not in , não está dentro de)
+
+  # Os operadores seguem uma sintaxe padrão que é:
+  { <campo>: { <operador>: <valor> } }  
+*/
+use('mongodbVSCodePlaygroundDB');
+
+// exemplo:
+db.sales.find({ quantity: { $lt: 2 } })
+db.sales.find({ quantity: { $lte: 2 } })
+db.sales.find({ quantity: { $gt: 10 } })
+db.sales.find({ quantity: { $gte: 10 } })
+db.sales.find({ quantity: { $eq: 10 } })
+db.sales.find({ quantity: { $ne: 10 } })
+
+//da para colocar mais de um:
+db.sales.find({ quantity: {$gte: 5, $ne: 10} })
+
+// ele mostra os valores que forem iguais a 1 ou 5
+db.sales.find({ quantity: { $in: [1, 5] } })
+
+// ele mostra os valores que não forem iguais a 1 ou 5
+db.sales.find({ quantity: { $nin: [1, 5] } })

@@ -1,0 +1,6 @@
+// Sistaxe:
+db.colecao.find().sort({ "campo": "1 ou -1"})
+
+// O sort() só pode ser usado se tiver algum resultado de busca antes:
+db.colecao.find().sort({ nomeDoAtributo: 1 }) // certo
+db.colecao.sort({ nomeDoAtributo: 1 }) // errado

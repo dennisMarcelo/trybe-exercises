@@ -1,0 +1,11 @@
+// limit()
+// limita a quantidado de dados retornardos:
+db.bios.find().limit(5)
+
+// skip()
+// controla a partir de que ponto o MongoDB começará a retornar os resultados. Essa abordagem pode ser bastante útil para realizar paginação dos resultados.
+db.bios.find().skip(2)
+
+//  pretty()
+//  deixa os resultado apresentado mais bonitos
+db.bios.find().limit(5).pretty()

@@ -1,0 +1,19 @@
+// Os dois métodos aceitam um documento como parâmetro, que pode conter um filtro simples ou até mesmo um conjunto de expressões para atender aos critérios de seleção.
+
+use('business');
+db.restaurants.find()
+
+
+// deleteOne()
+db.restaurants.deleteOne({
+  $and: [
+    {rating: 4},
+    {borough: "Bronx"}
+  ]
+})
+
+
+// deleteMany()
+db.restaurants.deleteMany({
+  cuisine: "American"
+ })

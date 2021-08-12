@@ -1,0 +1,54 @@
+use('business')
+db.restaurants.find()
+// $not
+// aqui retorna tudo que não form menor que 5
+db.restaurants.find(
+  {rating:{$not: {$lt: 5}}},
+  {name: 1, _id: 0, rating: 1}
+)
+
+// $or
+// Ele funciona um pouco deferente ele vem primeiro e é passado um array e dentro dele tem os objetos.
+db.restaurants.find(
+  {$or: [
+    {rating:{$gte:9}},
+    {name:{$regex: /Dj/}}
+  ]},
+  {name: 1, _id: 0, rating: 1}
+)
+
+// $nor
+// retorna nega todos as operacoes dentro do array
+// logo retorna tudo aquilo que for `menor que 5` e `nao tiver a`
+db.restaurants.find(
+  {$nor: [
+    {rating:{$gte:5}},
+    {name:{$regex: /a/}}
+  ]},
+  {name: 1, _id: 0, rating: 1}
+)
+
+// $and
+// as operacoes devem retornar true
+db.restaurants.find(
+  {
+    $and: [
+      {rating:{$gte:5}},
+      {name:{$regex: /Dj/}}
+    ]
+  },
+  {name: 1, _id: 0, rating: 1}
+)
+
+// Múltiplas expressões especificando o mesmo operador
+db.inventory.find({
+    $and: [
+        { price: { $gt: 0.99, $lt: 1.99 } },
+        {
+            $or: [
+                { sale : true },
+                { qty : { $lt : 20 } }
+            ]
+        }
+    ]
+})

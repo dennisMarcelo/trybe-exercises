@@ -1,0 +1,35 @@
+use('business');
+//db.restaurants.find()
+
+// exe 1
+db.restaurants.find({
+  rating: {
+    $not: {
+      $lte: 5
+    }
+  }
+}).count() 
+
+// exe 2
+db.restaurants.find({
+  $or: [
+    { rating: { $lte: 6 } },
+    { borough: "Brooklyn" }
+  ]
+}).count();
+
+// exe 3
+db.restaurants.find({
+  $and: [
+    { 
+      borough:{
+        $in:['Queens' , 'Staten Island', 'Broklyn']
+      }
+    },
+    {
+      rating: { $gte: 4}
+    }
+  ]
+}).count();
+
+// faça o exercicio 5 deste link: https://app.betrybe.com/course/back-end/introducao-ao-mongodb/filter-operators/670f129e-aebb-42e5-a6ed-f577d5d6cbd6/conteudos/11004c58-8ba2-404e-b466-4eaafbad7681/operadores-logicos/ab90fab8-9786-4b43-87fd-52d1a8d55917?use_case=side_bar

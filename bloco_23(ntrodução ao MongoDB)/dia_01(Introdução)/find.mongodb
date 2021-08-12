@@ -1,0 +1,40 @@
+// para ver arquivos os dados registrados:
+// todos os dados
+db.colection.find();
+
+
+// find com parâmetros
+// query (opcional): aqui diz qual dado vc quer
+// projection (opcional): especifica quais atributos devem ser retornados
+db.collection.find(query, projection);
+
+db.movies.insertOne(
+    {
+        "title" : "Forrest Gump",
+        "category" : [ "drama", "romance" ],
+        "imdb_rating" : 8.8,
+        "filming_locations" : [
+            { "city" : "Savannah", "state" : "GA", "country" : "USA" },
+            { "city" : "Monument Valley", "state" : "UT", "country" : "USA" },
+            { "city" : "Los Anegeles", "state" : "CA", "country" : "USA" }
+        ],
+        "box_office" : {
+            "gross" : 557, "opening_weekend" : 24, "budget" : 55
+        }
+    }
+)
+
+db.movies.findOne(
+    { "title" : "Forrest Gump" },
+    { "title" : 1, "imdb_rating" : 1 }
+)
+
+
+
+// Note que, para acessar campos em subdocumentos, utilizamos dot notation (por exemplo, "subdocumento.atributo" ):
+db.bios.find( { "name.last": "Hopper" } );
+
+// Projetando somente os atributos requeridos:
+// perceba que 0 é false e 1 é true:
+db.bios.find({}, {_id:0, name:1})
+

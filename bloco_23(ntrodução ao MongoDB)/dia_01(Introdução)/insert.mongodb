@@ -1,0 +1,17 @@
+//isert
+// da para criar seu próprio id ou gerar altomaticamente emitindo o parâmetro _id
+db.nomeDaColecao.insertOne( {_id: 1 x: 1 });
+
+// os dados são armazenado um por um, caso de problemas os dados restantes não são salvos
+// vc pode contornar isso usando o {ordered: false};
+db.nomeDaColecao.insertMany([ 
+	{ x: 1 }, 
+	{ x: 2 } 
+], { ordered: false });
+
+
+db.products.insertMany([
+    { "productName": "Lapis", "stock": 10, "price": 20,"status":"A"},
+    { "productName": "Tesoura", "price": 5, "status": "B" },
+    { "productName": "Borracha", "price": 15, "status": "A" }
+]);

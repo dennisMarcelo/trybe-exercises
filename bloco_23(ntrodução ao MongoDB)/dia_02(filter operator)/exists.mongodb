@@ -1,0 +1,5 @@
+//verifica se existo  campo quantidade
+// a sintaxe é essa, boa sorte:
+db.inventory.find({ 
+  quantidade: { $exists: true } 
+  })

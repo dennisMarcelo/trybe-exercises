@@ -1,0 +1,5 @@
+//cursor do mongosh retornar os 20 primeiro registros,
+//utilize o count para controlar a quantidado de documentos retornados com o count:
+db.movies.count();
+
+
