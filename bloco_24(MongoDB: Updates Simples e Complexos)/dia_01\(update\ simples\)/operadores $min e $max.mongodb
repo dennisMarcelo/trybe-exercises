@@ -1,0 +1,42 @@
+
+//elese são parecidos, mas tem algumas diferenças
+
+// $min
+// altera o valor do campo para o valor especificado se esse valor especificado é menor do que o atual valor do campo;
+use('conteudo_trybe');
+
+db.collection.updateMany(
+  {},
+  {
+    $min: {campo: 60}
+  },
+)
+
+db.collection.find()
+
+// $max
+// faz o mesmo, porém altera o valor do campo se o valor especificado é maior do que o atual valor do campo.
+use('conteudo_trybe');
+
+db.collection.updateMany(
+  {},
+  {
+    $max: {campo: 55}
+  },
+)
+
+db.collection.find()
+
+
+// Atualizando datas com o min e max:
+
+use('conteudo_trybe');
+db.tags.updateOne(
+  {},
+  {
+    $min: { dateEntered: new Date("2019-09-25") },
+    $max: { dateExpired: new Date("2019-10-02") }
+  }
+)
+
+db.tags.find()

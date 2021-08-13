@@ -1,0 +1,16 @@
+use('conteudo_trybe');
+
+db.inventory.updateOne(
+  {item:'paper'},
+  {
+    $set:{'size.uom': "cm", status: "P" }
+  }
+);
+
+
+db.inventory.updateMany(
+  { "qty": { $gt: 50 } },
+  { $set: { "size.uom": "in", status: "P" } }
+)
+
+db.inventory.find();

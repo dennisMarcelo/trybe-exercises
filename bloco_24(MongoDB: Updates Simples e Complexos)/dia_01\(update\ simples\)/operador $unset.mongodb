@@ -1,0 +1,15 @@
+//$unset
+// remove um ou mais campos de um documento
+
+use('conteudo_trybe');
+
+const obj1 = {inStock: ""}
+
+db.fruits.updateMany(
+  {},
+  {
+    $unset: obj1
+  },
+);
+
+db.fruits.find()

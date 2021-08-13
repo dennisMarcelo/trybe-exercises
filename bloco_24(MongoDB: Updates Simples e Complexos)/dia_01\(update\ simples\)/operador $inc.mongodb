@@ -1,0 +1,13 @@
+use('conteudo_trybe');
+
+//$inc
+// Com ele você pode incrementar ou decrementar valores, utilizando valores positivos e negativos.
+// aqui ele incremento nos dois campos:
+db.increment.update(
+  { sku: "abc123" },
+  {
+    $inc: { quantity: -2, "metrics.orders": 1 }
+  }
+)
+
+db.increment.find();

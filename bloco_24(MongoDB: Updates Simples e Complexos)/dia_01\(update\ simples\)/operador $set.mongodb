@@ -1,0 +1,35 @@
+//$set
+//Se o campo não existir, o operador $set adiciona um novo campo com o valor especificado. Se você especificar campos com dot notation , os documentos embedados necessários serão criados para suprir o caminho do campo.
+use('conteudo_trybe');
+db.products.find();
+
+// atualização simples 
+db.products.updateOne(
+  {"_id": 100},
+  {
+    $set: {
+      quantity: 500,
+      details: { model: "14Q3", make: "xyz" },
+      tags: [ "coats", "outerwear", "clothing" ]
+    }
+  }
+)
+
+// atualização em documentos embedados
+db.products.updateOne(
+  { _id: 100 },
+  { $set: { "details.make": "zzz" } }
+);
+
+
+
+// atualização de arrays
+db.products.updateOne(
+  { _id: 100 },
+  {
+    $set: {
+      "tags.1": 'rain gear',
+      "ratings.0.ratting": 2
+    }
+  }
+);

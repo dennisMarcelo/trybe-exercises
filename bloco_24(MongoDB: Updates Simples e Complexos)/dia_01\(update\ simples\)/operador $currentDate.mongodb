@@ -1,0 +1,19 @@
+use('conteudo_trybe');
+
+//$currentDate
+//fortamto: { $currentDate: { <campo>: <typeSpecification>, ... } }
+// O operador $currentDate atribui ao valor de um campo a data corrente , utilizando um tipo Date ou timestamp . Se você não especificar o tipo, por padrão, o MongoDB atribuirá o valor do tipo Date.
+
+// ele cria uma nova chave cancellation.date
+db.customers.updateOne(
+  {"_id" : 1},
+  {
+    $currentDate: {
+      lastModified: true,
+      "cancellation.date": {$type: "timestamp"}
+    }
+  }
+);
+
+
+db.customers.find();

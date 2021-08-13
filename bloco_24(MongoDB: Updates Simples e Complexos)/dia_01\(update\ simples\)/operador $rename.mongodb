@@ -1,0 +1,14 @@
+// $rename
+// ele permit renomear um determinado atributo de um ou mais documentos
+use("conteudo_trybe");
+
+db.fruits.updateOne(
+  { name: "Banana" },
+  {
+    $rename: {
+      "name": "productName"
+    }
+  }
+);
+
+db.fruits.find();

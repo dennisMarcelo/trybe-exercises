@@ -1,0 +1,25 @@
+use('conteudo_trybe');
+//$mul
+//O operador $mul multiplica o valor de um campo por um número especificado
+db.products.updateOne(
+  { _id: 1 },
+  { $mul: { price: NumberDecimal("1.25"), qty: 2 } }
+);
+
+
+// se o campo for vazio ele coloca 0 no lugar
+//resultado sera: { "_id": 2, "item": "Unknown", "price": 0 }
+db.products.updateOne(
+  { _id: 2 },
+  { $mul: { price: NumberLong("100") } }
+);
+
+
+//Você também pode multiplicar valores com tipos diferentes:
+// resultado: { "_id": 3, "item": "XYZ", "price": 50 }
+db.products.updateOne(
+  { _id: 3 },
+  { $mul: { price: NumberInt(5) } }
+);
+
+db.products.find();
