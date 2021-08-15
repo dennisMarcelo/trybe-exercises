@@ -1,0 +1,43 @@
+// arrayFilters
+// Utilizado em casos em que precisa alterar um objeto dentro de um array.
+// Você pode modificar o objeto diretamente caso saiba o index dele, caso ao contrario vai precisar disso:
+
+use('conteudo_trybe');
+db.fruits.updateMany(
+  {},
+  {
+    $set: {
+      "fornecedores.$[elentoIndex].nota": 8
+    }
+  },
+  {
+    arrayFilters: [
+      { "elentoIndex.localização": {
+          $in:["Rio de janeiro","são paulo"]
+        }
+      },
+    ]
+  },
+);
+
+db.fruits.find();
+
+
+// da para atualizar mais de um valor ao mesmo tempo:
+use('conteudo_trybe');
+db.fruits.updateMany(
+  {},
+  {
+    $set: {
+      "fornecedores.$[elentoIndex].nota": 5,
+      "fornecedores.$[elentoIndex].localização": "Rio de janeiro",
+    }
+  },
+  {
+    arrayFilters: [
+      { "elentoIndex.localização": "Rio de Janeiro" },
+    ]
+  },
+);
+
+db.fruits.find();

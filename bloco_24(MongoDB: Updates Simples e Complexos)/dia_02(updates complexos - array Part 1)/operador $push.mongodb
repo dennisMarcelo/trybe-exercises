@@ -1,0 +1,90 @@
+// $push
+// O operador $push adiciona um valor a um array . Se o campo não existir no documento, um novo array com o valor em um elemento será adicionado.
+
+// sintaxe:
+// { $push: { <campo1>: <valor1>, ... } }
+
+// upsert não influencia a forma como o $push funciona ele apenas adciona o campo caso não exista.
+
+// Voce só pode passar um valor para o $push:
+use('conteudo_trybe');
+db.fruits.updateOne(
+  {fruit: 'Banana'},
+  {
+    $push: {
+      fornecedores: {
+        nome: 'Quebradas', 
+        localização: 'são paulo'
+      }
+    }
+  },
+  {upsert: true}
+
+);
+db.fruits.find();
+
+
+
+// para adcionar mais de um valor é preciso utilizar o modificador $each:
+use('conteudo_trybe');
+db.fruits.updateOne(
+  {fruit: 'Banana'},
+  {
+    $push: {
+      tipos: {
+        $each: ['maçã', 'prata', 'pera', 'nanica']
+      }
+    }
+  }
+);
+db.fruits.find();
+
+
+
+// voce pode utilizar multiplos modificadores
+// o $sort:{chave: 1|-1} ordena, $slice determina a qtd de valores permitidos;
+// Usei o collection para definir a liguagem PT;
+use('conteudo_trybe');
+db.fruits.updateOne(
+  {fruit: 'Banana'},
+  {
+    $push: {
+      fornecedores: {
+        $each: [
+          {
+            nome: 'Super bananas', 
+            localização: 'minas'
+          },
+          {
+            nome: 'Pedroso alegre', 
+            localização: 'Rio de janeiro'
+          },
+        ],
+        $sort:{nome: -1},
+        $slice: 3,
+      }
+    }
+  },
+  {upsert: true, collection:{locale: 'pt'}}
+);
+db.fruits.find();
+
+
+// $position determina a posição em que é inserido.
+// da para add um item no inicio passando $position:0
+// da para add um item ao final removendo o $position
+use('conteudo_trybe');
+db.fruits.updateOne(
+  {fruit: 'Banana'},
+  {
+    $push: {
+      tipos: {
+        $each:['chinesa'],
+        $position:0,
+      }
+    }
+  },
+  {upsert: true}
+
+);
+db.fruits.find();

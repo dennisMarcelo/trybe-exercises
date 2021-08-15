@@ -1,0 +1,31 @@
+// $addToSet
+// O operador $addToSet é utilizado quando você precisa garantir que os valores de um array não sejam duplicados. Ou seja, ele garante que apenas valores únicos estejam presentes no array , tratando o array como se fosse um conjunto (uma vez que conjuntos, na matemática, não podem conter elementos duplicados).
+
+// Add um item por vez
+use('conteudo_trybe');
+db.fruits.updateOne(
+  {},
+  {
+    $addToSet: {
+      tipos: "d\'agua"
+    },
+  },
+  {upsert: true},
+);
+db.fruits.find();
+
+
+// Add varios items com o modificador $each
+// aqui o $modificadores não funcionam
+use('conteudo_trybe');
+db.fruits.updateOne(
+  {},
+  {
+    $addToSet: {
+      tipos:{ $each: ['mama'],
+      }
+    },
+  },
+  {upsert: true},
+);
+db.fruits.find();

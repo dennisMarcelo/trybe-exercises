@@ -1,0 +1,38 @@
+// $pop
+// Uma maneira simples de remover o ultimo ou o primeiro item do array
+// sintaxe: { $pop: { items: -1|1 } }
+// -1 primeiro item, 1 ultimo item
+
+use('conteudo_trybe');
+
+db.fruits.updateOne(
+  { "_id": 100},
+  {
+    $pop:{
+      fornecedores: 1,
+    }
+  }
+);
+
+db.fruits.find();
+
+
+// não sei se da para fazer isso de outra forma
+use('conteudo_trybe');
+db.fruits.updateOne(
+  { "_id": 100},
+  {
+    $push: {
+      tipos: {
+        $each:['chinesa'],
+        $position:0,
+      }
+    },
+    $pop:{
+      tiposDeFrutas: 1,
+    },
+    
+  }
+);
+
+db.fruits.find();

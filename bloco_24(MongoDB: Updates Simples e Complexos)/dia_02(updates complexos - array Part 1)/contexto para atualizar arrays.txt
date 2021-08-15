@@ -1,0 +1,11 @@
+# Em conjunto com o $push , você pode utilizar o que chamamos de modificadores . Cada um desses modificadores tem funções específicas que você verá melhor com exemplos. São eles:
+ - $each: Adiciona múltiplos valores a um array ;
+ - $slice: Limita o número de elementos do array . Requer o uso do modificador $each ;
+ - $sort: Ordena os elementos do array . Requer o uso do modificador $each ;
+ - $position: Especifica a posição do elemento que está sendo inserido no array. Também requer o modificador $each. Sem o modificador $position, o operador $push adiciona o elemento no final do array.
+
+# Quando você utiliza um modificador, o processo de push ocorre na seguinte ordem, independentemente da ordem em que os modificadores aparecem:
+ 1. Altera o array para adicionar os elementos na posição correta;
+ 2. Aplica a ordenação ( $sort ), se especificada;
+ 3. Limita o array ( $slice ), se especificado;
+ 4. Armazena o array .
