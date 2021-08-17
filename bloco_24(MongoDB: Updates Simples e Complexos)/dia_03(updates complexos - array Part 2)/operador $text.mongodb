@@ -1,0 +1,55 @@
+// $text
+// O operador $text faz uma busca "textual" em um campo indexado por um "text index". A expressão para utilizar o $text tem a seguinte sintaxe:
+// mais informação toma doc: https://docs.mongodb.com/manual/reference/operator/query/text/#mongodb-query-op.-text
+
+
+// primero passo criar indice
+use('conteudo_trybe');
+db.fruits.dropIndex("descrição_text");
+db.fruits.createIndex( {"descrição":"text"}, {default_language: "pt"} );
+
+
+// buscar po somente um termo
+use('conteudo_trybe');
+db.fruits.find(
+  {
+    $text: {
+      $search: "banana"
+    }
+  }
+);
+
+
+
+// busca por um array de termos
+use('conteudo_trybe');
+db.fruits.find(
+  {
+    $text: {
+      $search: "banana suculenta plantação"
+    }
+  }
+);
+
+
+
+// busca por uma frase no texto
+use('conteudo_trybe');
+db.fruits.find(
+  {
+    $text: {
+      $search: "\"bananas super\"",
+      $language: "pt"
+    }
+  }
+);
+
+
+
+
+
+
+/* 
+db.articles.createIndex({ subject: "text" }, {default_language: "pt"});
+{score:{$meta: "textScore"}}
+ */

@@ -1,0 +1,27 @@
+// $elemMatch
+// seleciona os documentos que contêm um campo do tipo array com pelo menos um elemento que satisfaça todos os critérios de seleção especificados. Ou seja, com esse operador você pode especificar várias queries para um mesmo array.
+
+use('conteudo_trybe');
+db.scores.find(
+  { results: { $elemMatch: { $gte: 80, $lt: 85 } } }
+);
+
+
+// tbm da para analizar subdocumentos em arrays:
+use('conteudo_trybe');
+db.fruits.find(
+  {
+    fornecedores:{
+      $elemMatch: { 
+        'localização':'São Paulo',
+        'nota': { $lte: 5},
+      }
+    }
+  }
+);
+
+
+use('conteudo_trybe');
+db.fruits.find(
+  {}
+);

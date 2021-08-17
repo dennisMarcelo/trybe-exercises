@@ -1,0 +1,22 @@
+//$all
+// ele funciona de forma parecida como o $and ele retorna todos os documentos independentemente da existência de outros valores ou a ordem em que os elementos estejam.
+
+use('conteudo_trybe');
+db.fruits.find(
+  {tipos: {$all:['maçã', 'prata']}}
+);
+
+
+db.fruits.find(
+  {
+    $and: [
+      {tipos: 'maçã'},
+      {tipos: 'prata'}
+    ]
+  }
+);
+
+// retorna somente o ducumento em que o array seja igual ao passado.
+db.fruits.find(
+  {tipos: ['maçã', 'prata']}
+);

@@ -1,0 +1,10 @@
+// $size
+// seleciona documentos em que um array contenha um número de elementos especificado e exato.
+
+use('conteudo_trybe')
+
+db.fruits.find(
+  {'tipos': {
+    $size: 3
+  }}
+);

@@ -1,0 +1,12 @@
+// Depos da versão 3.6 foi nasceu o $expr
+// veja detalhes em: https://docs.mongodb.com/manual/reference/operator/query/where/
+// cuidado ele é muito lento em comparação ao $expr
+
+use('conteudo_trybe')
+db.fruits.find(
+  {
+    $where: function(){
+      return this.vendidos > this.danificados;
+    }
+  }
+)

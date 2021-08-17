@@ -1,0 +1,12 @@
+// $regex
+// bom o nome já diz o que faz :)
+
+use('conteudo_trybe')
+
+db.fruits.find(
+  {
+    "fornecedores.localização": {
+      $regex: /alegre/gi
+    }
+  }
+)

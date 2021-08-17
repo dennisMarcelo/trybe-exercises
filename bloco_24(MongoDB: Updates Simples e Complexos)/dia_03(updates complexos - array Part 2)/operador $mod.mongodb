@@ -1,0 +1,13 @@
+// $mod - operação de modulo.
+// verifiva se o resto da divisão satisfaz a condição
+// é dividio pelo primeiro item depois verifica se a sobra é 0
+
+use('conteudo_trybe');
+
+db.fruits.find(
+  {
+    "danificados": {
+      $mod: [80, 0]
+    }
+  }
+);

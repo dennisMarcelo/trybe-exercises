@@ -1,0 +1,14 @@
+// $expr - expresion
+// O operador $expr permite que você utilize expressões de agregação e construa queries que '-- comparem campos no mesmo documento --'.
+// expressões de agregação: https://docs.mongodb.com/manual/meta/aggregation-quick-reference/#aggregation-expressions
+// É muito útil no framework agregation
+
+// não esqueça de colocar o '$' para fazer referencia a chave não ao valor do documento. 
+
+use('conteudo_trybe');
+
+db.fruits.find(
+  {
+    $expr: {$gt: ['$vendidos', '$danificados'] }
+  }
+);
