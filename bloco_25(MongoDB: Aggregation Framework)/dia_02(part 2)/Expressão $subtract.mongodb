@@ -1,0 +1,67 @@
+// $subtract
+
+use('conteudo_trybe');
+db.sales.drop();
+
+db.sales.insertMany([
+  {
+    _id: 1,
+    item: "abc",
+    price: 10,
+    fee: 2,
+    discount: 5,
+    date: ISODate("2014-03-01T08:00:00Z")
+  },
+  {
+    _id: 2,
+    item: "jkl",
+    price: 20,
+    fee: 1,
+    discount: 2,
+    date: ISODate("2014-03-01T09:00:00Z")
+  }
+])
+
+
+// da para utilizar $add para calcular o total e o $subtract para aplicar um desconto no subtotal:
+db.sales.aggregate([
+  {
+    $project: {
+      item: 1,
+      total: {
+        $subtract: [
+          {$add: ["$price", "$fee"]},
+          "$discount"
+        ]
+      }
+    }
+  }
+]);
+
+
+// da para subtrair datas utilizando a variável de sistema $$NOW
+use('conteudo_trybe');
+db.sales.aggregate([
+  {
+    $project: {
+      item: 1,
+      dateDifference: {
+        $subtract: ["$$NOW", "$date"]
+      }
+    }
+  }
+]);
+
+
+// ou a função new Date()
+use('conteudo_trybe');
+db.sales.aggregate([
+  {
+    $project: {
+      item: 1,
+      dateDifference: {
+        $subtract: [new Date(), "$date"]
+      }
+    }
+  }
+]);
