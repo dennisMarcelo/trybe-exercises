@@ -1,0 +1,25 @@
+// $project
+// serve para mostrar ou alterar a exibição dos campos retornados.
+
+use('dataFlights');
+
+db.voos.aggregate([
+  {
+    $match: {
+      "passageiros.gratis": { $gte: 2000},
+    }
+  },
+  {
+    $limit: 5
+  },
+  {
+    $project: {
+      _id:0,
+      "vooId": 1,
+      "empresaNome": "$empresa.nome",
+      "aeroportoOrigem": "$aeroportoOrigem.nome",
+      "aeroportoDestino": "$aeroportoDestino.nome",
+      "natureza": 1,
+    }
+  }
+]);

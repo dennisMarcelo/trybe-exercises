@@ -1,0 +1,57 @@
+// $group 
+// agrupa os documentos
+// doc: https://docs.mongodb.com/manual/reference/operator/aggregation/group/#accumulators-group
+
+
+use('dataFlights');
+
+db.voos.aggregate([
+  {
+    $group: {
+      _id: "$empresa.nome", // o _id aqui não é o mesmo do banco 
+      qtdVoos: { $sum: 1 }
+    }
+  },
+  {
+    $project: {
+      _id:0,
+      empresa: "$_id",
+      "qtdVoos": "$qtdVoos"
+    }
+  },
+  {
+    $sort: {empresa: 1},
+  },
+  {
+    $limit: 50 // pq ele não esta funcionando?
+  }
+]);
+
+
+/*
+  Operador de Acumulação
+  Para fazer operações sobre os campos de documentos agrupados usamos operadores de acumulação.
+  A seguir há uma lista com alguns dos mais utilizados:
+    $addToSet : retorna um array com os valores únicos da expressão para cada grupo;
+    $avg : retorna a média de valores numéricos. Valores não numéricos são ignorados;
+    $first : retorna um valor do primeiro documento de cada grupo;
+    $last : retorna um valor do último documento de cada grupo;
+    $max : retorna o maior valor de cada grupo;
+    $sum : retorna a soma de valores numéricos. Valores não numéricos são ignorados.
+*/
+
+
+
+// da para calcular a quantidade de vendas com ele:
+db.sales.aggregate([
+  {
+    $group : {
+      _id : "$item",
+      totalSaleAmount: {
+        $sum: {
+          $multiply: ["$price", "$quantity"]
+        }
+      }
+    }
+  }
+]);

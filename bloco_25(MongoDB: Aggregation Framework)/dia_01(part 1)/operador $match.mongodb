@@ -1,0 +1,15 @@
+// $ match 
+// basicamente serve para fazer filtros dentro do pipeline
+
+use('dataFlights');
+
+db.voos.aggregate([
+  {
+    $match: {
+      $or:[
+        {"passageiros.gratis": { $gte: 3000}},
+        {"empresa.sigla": "AZU"}
+      ]
+    }
+  }
+]);

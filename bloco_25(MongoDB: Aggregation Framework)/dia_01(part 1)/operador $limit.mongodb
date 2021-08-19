@@ -1,0 +1,15 @@
+// $limit
+// o nome já diz, ele limita
+
+use('dataFlights');
+
+db.voos.aggregate([
+  {
+    $match: {
+      "passageiros.gratis": { $gte: 2000},
+    }
+  },
+  {
+    $limit: 3
+  }
+]);

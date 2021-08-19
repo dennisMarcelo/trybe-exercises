@@ -1,0 +1,12 @@
+// $unwind
+// ele serve para desconstruir um array e criar novos documentos apartir dele:
+
+use('conteudo_trybe')
+
+db.inventory.insertOne({ _id: 7, item: "ABC1", sizes: ["S", "M", "L"] });
+
+db.inventory.aggregate([
+  {
+    $unwind: "$sizes"
+  }
+])
