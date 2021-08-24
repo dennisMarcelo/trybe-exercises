@@ -1,0 +1,18 @@
+caso a sua variável não seja "reservado" o npm não vai encontrala.
+Para o npm encontra-las você vai precisar utilizar o "npm run script"
+
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+forma de executar:
+npm test
+
+
+
+"scripts": {
+    "inportandoModulos": "node Importar módulos.js"
+  },
+
+forma de executar:
+npm run inportandoModulos

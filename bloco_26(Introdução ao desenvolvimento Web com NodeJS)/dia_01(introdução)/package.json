@@ -1,0 +1,20 @@
+{
+  "name": "nodejstestes",
+  "version": "1.0.0",
+  "description": "teste com node js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "inportModule": "node './Importando módulos.js'",
+    "exe1": "node ./teste1.js"
+  },
+  "keywords": [
+    "test",
+    "nodejs"
+  ],
+  "author": "dennis",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}

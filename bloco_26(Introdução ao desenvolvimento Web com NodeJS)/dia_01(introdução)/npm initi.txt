@@ -1,0 +1,35 @@
+npm init
+
+1º pergunta:
+R: nome do package
+
+2º pergunta:
+R: Semantic Versioning, padrão mais comum: 
+  1.0.0 (major version, minor version, Patch Versions).
+  0.3.1 (versão beta).
+
+  1.0.0 (o primeiro represenata uma alteração muito grande),
+  1.1.0 (o segundo representa uma alteração pequena, novas fetures),
+  1.1.1 (o terceiro representa correções de bugs).
+
+3º pergunta: 
+R: descrição
+
+4º pegunta:
+R: entry point (O 'ponto de entrada' é o arquivo javascript que será invocado quando os consumidores do seu módulo o “exigirem”, este arquivo incluirá a lógica principal do seu módulo ou, se for um módulo grande, você pode exportar funções públicas encontradas com outros arquivos (normalmente em o diretório lib)) 
+"-aqui vai o index.js-"
+
+5º pergunta: 
+R: O "test command" é o comando que é executado sempre que você chama "npm test"
+
+6º pergunta: 
+R: git repository: repositório do git
+
+7º pergunta: 
+R: keywords: palavras chaves quando alguem busar por um módulo igual o seu.
+
+8º pergunta: 
+R: autor
+
+9º pergunta: 
+R: licença: busque licenças aqui(https://choosealicense.com/licenses/)
