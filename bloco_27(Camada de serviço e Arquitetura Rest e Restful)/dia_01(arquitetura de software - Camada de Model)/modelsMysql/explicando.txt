@@ -1,0 +1,6 @@
+Passoa a se seguir para criar o model mysql:
+1 crie a conexão com o banco;
+2 crie o model;
+3 chame ele na rota desejada.
+
+link: https://app.betrybe.com/course/back-end/nodejs-camada-de-servico-e-arquitetura-rest-e-restful/arquitetura-de-software-camada-de-model/69147096-f19d-4ab4-a839-906359d79172/conteudos/3c9c19fb-7f9c-4dff-8b6c-c4d70e15313e/model-com-mysql/c02c8952-3f04-4c78-914e-85ab33d7008e?use_case=next_button
