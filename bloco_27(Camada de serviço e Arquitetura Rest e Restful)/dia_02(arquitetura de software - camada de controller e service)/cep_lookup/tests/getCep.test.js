@@ -11,7 +11,7 @@ const expectResponseJsonCep = {
 }
 
 
-describe('1 - rotas cep get', () => {
+describe('1 - rotas cep GET', () => {
   describe('Teste de roras', () => {
     it('teste estão rodando na porta 3000', async () =>{
       await frisby

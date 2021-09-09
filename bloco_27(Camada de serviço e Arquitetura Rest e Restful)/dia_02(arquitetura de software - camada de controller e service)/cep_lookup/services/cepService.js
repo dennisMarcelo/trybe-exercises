@@ -11,6 +11,13 @@ const findCep  = async(cepFind) => {
   }
 }
 
+const createCep = (cep, logradouro, bairro, localidade, uf) => {
+  const cepWithoutTraction = cep.replace(/-/g, '');
+
+  cepModel.createCep(cepWithoutTraction, logradouro, bairro, localidade, uf)
+}
+
 module.exports = {
-  findCep
+  findCep,
+  createCep
 };

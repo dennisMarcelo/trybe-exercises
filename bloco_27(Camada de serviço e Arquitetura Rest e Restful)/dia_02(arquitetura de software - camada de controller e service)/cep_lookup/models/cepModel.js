@@ -16,7 +16,26 @@ const findCep = async (cepFind) => {
     return {code: 'InternalServerError', message: err.message };
   
   };
-  
 };
 
-module.exports = {findCep};
+const createCep = async(cep, logradouro, bairro, localidade, uf) => {
+  try{
+    const response = await connection.execute(
+      `
+      insert into ceps(cep, logradouro, bairro, localidade, uf)
+      values (?, ?, ?, ?, ?)
+      `,
+      [cep, logradouro, bairro, localidade, uf]
+    )
+
+    if(response[0].affectedRows > 0){
+
+      console.log('sou maior que 1');
+    }
+
+  }catch (err) {
+    return {code: 'InternalServerError', message: err.message };
+  }
+}
+
+module.exports = {findCep, createCep};

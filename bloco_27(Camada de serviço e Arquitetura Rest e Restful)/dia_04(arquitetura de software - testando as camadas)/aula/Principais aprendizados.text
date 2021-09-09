@@ -1,0 +1,3 @@
+// para realizar mocks da bancos de banco de dados 
+// é uma boa ideia utilizar banco de dados em memória
+// utilize: npm install -D mongodb-memory-server@6
