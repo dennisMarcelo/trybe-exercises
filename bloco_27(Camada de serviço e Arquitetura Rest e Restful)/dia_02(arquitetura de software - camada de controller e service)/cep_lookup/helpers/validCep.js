@@ -3,7 +3,7 @@ const regex = /\d{5}-?\d{3}/g
 const regex2 = new RegExp('\\d{5}-?\\d{3}', 'g')
 
 module.exports = (cep) => {  
-  if(regex.test(cep)) {
+  if(cep.match(regex2)) {
     return true;
   }else{
     return false;
