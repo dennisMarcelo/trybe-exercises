@@ -1,4 +1,5 @@
 const frisby = require('frisby');
+
 const { 
   url,
  headers,
@@ -7,6 +8,7 @@ const {
  ufInvalidResponse,
  cepInvalidBody,
  cepInvalidResponse,
+ cepAlreadyExists
 } = require('./data')
 
 
@@ -49,6 +51,16 @@ describe('2 - rotas cep POST', ()=>{
     })
   })
 
-  
-
+  describe('O CEP já existe', ()=> {
+    it('retonar status 409 e um json informando o erro', ()=> {
+      return frisby
+        .fetch(url, {
+          method: 'POST',
+          headers,
+          body: JSON.stringify(okBody),
+        })
+        .expect('status', 409)
+        .expect('json', cepAlreadyExists)
+    })
+  })
 })

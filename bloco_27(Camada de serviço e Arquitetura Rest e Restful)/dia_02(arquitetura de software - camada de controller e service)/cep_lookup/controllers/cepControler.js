@@ -18,7 +18,7 @@ const findCep = async (req, res, next) => {
 }
 
 
-const createCep = (req, res, next) => {
+const createCep = async(req, res, next) => {
   try {
     const {error} = Joi.object({
       cep: Joi.string().not().empty().required(), 
@@ -34,9 +34,14 @@ const createCep = (req, res, next) => {
 
     if(!validCep(cep)) return next({ "code": "invalidData", "message": "CEP inválido" });
 
-    cepService.createCep(cep, logradouro, bairro, localidade, uf);
+    const response = await cepService.createCep(cep, logradouro, bairro, localidade, uf);
+    
+    if (response.code) return next(response)
 
-    res.status(201).json({cep, logradouro, bairro, localidade, uf});
+    if (response) {
+      return res.status(201).json({cep, logradouro, bairro, localidade, uf});
+    }
+
   }catch(err) {
     return next({ code: "InternalServerError", message: err.message});
   }

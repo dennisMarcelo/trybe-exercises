@@ -2,7 +2,7 @@ const url = 'http://localhost:3000/cep';
 
 //bodys
 const okBody = {
-  "cep": "01001-002",
+  "cep": "01001-000",
   "logradouro": "Praça da Sé",
   "bairro": "Sé",
   "localidade": "São Paulo",
@@ -40,6 +40,10 @@ const cepInvalidResponse = {
     }
 }
 
+const cepAlreadyExists = {
+  "error": { "code": "alreadyExists", "message": "CEP já existente" }
+}
+
 const headers = { 'Content-Type': 'application/json'}
 
 module.exports = {
@@ -50,4 +54,5 @@ module.exports = {
  ufInvalidResponse,
  cepInvalidBody,
  cepInvalidResponse,
+ cepAlreadyExists
 }

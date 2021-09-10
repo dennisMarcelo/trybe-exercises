@@ -11,10 +11,15 @@ const findCep  = async(cepFind) => {
   }
 }
 
-const createCep = (cep, logradouro, bairro, localidade, uf) => {
+const createCep = async (cep, logradouro, bairro, localidade, uf) => {
   const cepWithoutTraction = cep.replace(/-/g, '');
 
-  cepModel.createCep(cepWithoutTraction, logradouro, bairro, localidade, uf)
+  const cepExist = await cepModel.findCep(cepWithoutTraction);
+ 
+  if (cepExist) return { "code": "alreadyExists", "message": "CEP já existente" };
+
+  const response = await cepModel.createCep(cepWithoutTraction, logradouro, bairro, localidade, uf)
+  return response;
 }
 
 module.exports = {

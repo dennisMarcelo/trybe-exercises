@@ -11,7 +11,7 @@ const findCep = async (cepFind) => {
       `
     )
     return cep[0]
-
+a
   }catch (err) {
     return {code: 'InternalServerError', message: err.message };
   
@@ -29,8 +29,9 @@ const createCep = async(cep, logradouro, bairro, localidade, uf) => {
     )
 
     if(response[0].affectedRows > 0){
-
-      console.log('sou maior que 1');
+      return true;
+    }else{
+      return false;
     }
 
   }catch (err) {
