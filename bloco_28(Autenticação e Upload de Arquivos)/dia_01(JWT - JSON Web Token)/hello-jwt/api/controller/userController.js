@@ -42,12 +42,12 @@ const login = (req, res, next) => {
 
 const getUser = (req, res) => {
   const {username, admin} = req.user;
-  
-  res.status(200).json({username, admin});
+
+  res.status(200).json({code: 'successes', user:{username, admin}});
 }
 
 const topScret = (req, res) => {
-  res.status(200).json({ secretInfo: 'Peter Parker é o Homem-Arannha' });
+  res.status(200).json({ code:'successes', secretInfo: 'Peter Parker é o Homem-Arannha' });
 }
 
 module.exports = {
