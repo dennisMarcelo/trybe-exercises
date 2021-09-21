@@ -30,8 +30,6 @@ describe('GET /api/users/:userId', () => {
 
       responseWithoutToken = await chai.request(server)
         .get(`/api/users/:${fakeId}`)
-
-      console.log(responseWithoutToken.body);
     })
       
     after( async () => {
@@ -49,12 +47,47 @@ describe('GET /api/users/:userId', () => {
   });
 
   //-----------------------------------------------------------
-  //-----------------------------------------------------------
-  //-----------------------------------------------------------
-  //-----------------------------------------------------------
   
-  describe.skip('requisição com token invalido', () => {
+  describe('requisição com token invalido', () => {
     let responseInvalidToken;
+
+    before(async () => {
+      const URLMock = await DBServer.getUri();
+      const connectionMock = await MongoClient.connect(URLMock,
+        { useNewUrlParser: true, useUnifiedTopology: true }
+      );
+
+      sinon.stub(MongoClient, 'connect')
+        .resolves(connectionMock);
+
+      connectionMock.db('jwt_exercise')
+        .collection('users')
+        .insertOne({
+          _id: EXAMPLE_ID,
+          name:'T\'Challa',
+          username: 'blackPanther', 
+          password: 'wakand forevar',
+          profession: 'super hero'
+        })
+
+
+      const {body: { token }} = await chai.request(server)
+        .post('/api/users')
+        .send(user)
+
+      responseWithoutToken = await chai.request(server)
+        .get(`/api/users/:${fakeId}`)
+        .set('authorization', token)
+      
+      // Ainda é preciso fazer algumas alterações no validateJWT
+      // projeto abandonado.
+    })
+      
+    after( async () => {
+      MongoClient.connect.restore();
+      await DBServer.stop();
+    });
+
 
     it('retorna Código de status 401 - /Unauthorized/', () => {
       expect(responseInvalidToken).to.have.status(401);
@@ -64,6 +97,8 @@ describe('GET /api/users/:userId', () => {
       expect(responseInvalidToken.body.message).to.be.equal('Acesso negado')
     });
   });
+
+  //-----------------------------------------------------------
 
   describe.skip('requisição com suario autenticado corretamente', () => {
     let responseOK;
@@ -93,16 +128,4 @@ describe('GET /api/users/:userId', () => {
     requisição com suario autenticado corretamente
       - retorna os dados da pessoa usuária em um objeto em um objeto no corpo ( body ) da resposta ( response ).
       - Código de status 200 - OK.
-*/
-
-/*
-
-    const URLMock = await DBServer.getUri();
-      const connectionMock = await MongoClient.connect(URLMock,
-        { useNewUrlParser: true, useUnifiedTopology: true }
-      );
-  
-      sinon.stub(MongoClient, 'connect')
-        .resolves(connectionMock);
-
 */
