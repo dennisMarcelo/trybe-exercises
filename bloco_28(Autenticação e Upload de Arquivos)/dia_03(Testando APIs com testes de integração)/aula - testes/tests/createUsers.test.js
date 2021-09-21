@@ -4,7 +4,7 @@ const sinon = require('sinon');
 const {MongoClient} = require('mongodb');
 const { MongoMemoryServer} = require('mongodb-memory-server');
 
-const server = require('../src/api/server');
+const server = require('../src/api/api');
 
 chai.use(chaiHttp);
 
@@ -28,13 +28,14 @@ describe('POST /api/users', () => {
         .post('/api/users')
         .send({ username: 'blackPanther', password: 'wakand forevar'});
     })
-
+    
     after(async () => {
       MongoClient.connect.restore();
       await DBServer.stop();
     })
-
+    
     it('retorna o código de status 201', () => {
+      console.log(response);
       expect(response).to.have.status(201);
     });
 

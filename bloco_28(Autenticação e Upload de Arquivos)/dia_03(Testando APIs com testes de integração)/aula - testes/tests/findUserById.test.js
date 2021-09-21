@@ -4,7 +4,6 @@ const sinon = require('sinon');
 const { MongoClient } = require('mongodb');
 const { MongoMemoryServer} = require('mongodb-memory-server');
 
-
 const server = require('../src/api/api');
 
 chai.use(chaiHttp);
@@ -15,37 +14,37 @@ const fakeId = '605de6ded1ff223100cd6aa1'
 const user = { username: 'blackPanther', password: 'wakand forevar'}
 
 describe('GET /api/users/:userId', () => {
-
+  
   describe('requisição sem toke', async () => {
     let responseWithoutToken;
     const DBServer = new MongoMemoryServer();
-    
+
     before(async () => {
       const URLMock = await DBServer.getUri();
       const connectionMock = await MongoClient.connect(URLMock,
         { useNewUrlParser: true, useUnifiedTopology: true }
       );
-  
+
       sinon.stub(MongoClient, 'connect')
         .resolves(connectionMock);
-  
+
       responseWithoutToken = await chai.request(server)
-        .post('/api/users')
-        .send(user);
+        .get(`/api/users/:${fakeId}`)
+
       console.log(responseWithoutToken.body);
     })
       
-    afterEach( async () => {
+    after( async () => {
       MongoClient.connect.restore();
       await DBServer.stop();
     });
       
-    it('retorna código de status 400 - /Not Found/', async () => {
-        expect(responseWithoutToken).to.have.status(400);
+    it('retorna código de status 401 - /Not Found/', async () => {
+        expect(responseWithoutToken).to.have.status(401);
     });
     
     it('retorna mensagem de erro no body da response com o texto /Token não encontrado ou informado/', () => {
-      expect(responseWithoutToken.body.message).to.be.equal('Token não encontrado ou informado')
+      expect(responseWithoutToken.body.error).to.be.equal('Token não encontrado')
     });
   });
 
@@ -54,7 +53,7 @@ describe('GET /api/users/:userId', () => {
   //-----------------------------------------------------------
   //-----------------------------------------------------------
   
-  describe('requisição com token invalido', () => {
+  describe.skip('requisição com token invalido', () => {
     let responseInvalidToken;
 
     it('retorna Código de status 401 - /Unauthorized/', () => {
@@ -66,7 +65,7 @@ describe('GET /api/users/:userId', () => {
     });
   });
 
-  describe('requisição com suario autenticado corretamente', () => {
+  describe.skip('requisição com suario autenticado corretamente', () => {
     let responseOK;
 
     it('Código de status 200 - OK.', async () => {
@@ -96,3 +95,14 @@ describe('GET /api/users/:userId', () => {
       - Código de status 200 - OK.
 */
 
+/*
+
+    const URLMock = await DBServer.getUri();
+      const connectionMock = await MongoClient.connect(URLMock,
+        { useNewUrlParser: true, useUnifiedTopology: true }
+      );
+  
+      sinon.stub(MongoClient, 'connect')
+        .resolves(connectionMock);
+
+*/
