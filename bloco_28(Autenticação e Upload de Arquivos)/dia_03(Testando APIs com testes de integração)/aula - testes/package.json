@@ -4,7 +4,8 @@
   "main": "./api/server.js",
   "scripts": {
     "dev": "nodemon ./src/api/server.js",
-    "test": "mocha ./tests/**/*$NAME*.test.js --exit"
+    "test": "mocha ./tests/**/*$NAME*.test.js --exit",
+    "test:coverage": "nyc npm test"
   },
   "dependencies": {
     "bcrypt-nodejs": "~0.0.3",
@@ -18,7 +19,10 @@
   },
   "devDependencies": {
     "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
     "mocha": "^9.1.1",
+    "mongodb-memory-server": "^6.9.6",
+    "nyc": "^15.1.0",
     "sinon": "^11.1.2"
   }
 }
