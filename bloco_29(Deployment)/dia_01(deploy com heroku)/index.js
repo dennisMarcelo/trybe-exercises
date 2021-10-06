@@ -5,6 +5,8 @@ const PORT = process.env.PORT || 3000;
 const TEST = process.env.TEST || 'NÃO ESTA FUNCIONANDO'
 
 app.get('/', (req, res) => {
+  let cont  = 1;
+  console.log('hello word!'+ cont);
   res.status(200).send('Pong!');
 })
 

@@ -1,0 +1,107 @@
+# utilizaremos como Process manager o PM3
+
+# da para usar no heroku
+	$ npm install pm2
+
+para instalar:
+	$ npm install pm2@latest -g
+
+visualizar versão:
+	$ pm2 --version 
+
+update: 
+	$ pm2 update
+
+Assiter Alterações
+	$ pm2 start index.js --name <NOME_DO_PROCESSO> --watch
+
+start:
+	$ pm2 start index.js
+	$ pm2 start index.js --name <NOME_DO_PROCESSO>
+	$ pm2 start all
+
+stop: 
+	$ pm2 stop <NOME_DO_PROCESSO>
+	$ pm2 stop all
+
+delete
+	$ pm2 delete <NOME_DO_PROCESSO>
+
+restart 
+	# ele mata o processo e inicia um novo.
+	$ pm2 restart <NOME_DO_PROCESSO>
+
+reload 
+	# Ele sobe um proceso e mata o anterior.
+	$ pm2 restart <NOME_DO_PROCESSO>
+
+list:
+	# lista todos processos
+	$ pm2 list
+	$ pm2 ls
+	
+	# ordenar processos, vc escolhe a coluna e como ele é ordenada.
+	$ pm2 list --sort name:desc
+	$ pm2 list --sort name:asc
+	$ pm2 list --sort id:desc
+
+show
+	# exibe detalhes de um processo
+	$ pm2 show <NOME_DO_PROCESSO>
+
+logs
+	$ pm2 logs <NOME_DO_PROCESSO>
+
+monit
+	$ pm2 monit
+
+Interface web
+	# primeiro crie cadastro no link: https://id.keymetrics.io/api/oauth/register
+	$ pm2 plus
+
+cluester (balanciamente de carga)
+	# O instace ou 'i' inicia o processo em dois nucleos diferentes
+	# Para utilizar todos os nuclues disponiveis utilize 'max ou 0'
+	$ pm2 start index.js --instances 2 --name <NOME_DO_PROCESSO>
+
+Scaling
+	# informa  o numero total de processos
+	
+	# informar numero todal de processos
+	$ pm2 scale <NOME_DO_PROCESSO> 3
+	
+	# aumenta o numero de processos
+	$ pm2 scale <NOME_DO_PROCESSO> +3
+
+Statless 
+	# conseito que diz que os dados de sessão não devem ser armazenados no api
+
+Ecosystem file
+	# arquivo de configuração para o PM2 executar suas aplicações.
+	# Com o ecosystem, é possível definir individualmente a configuração de cada aplicação ou serviço.
+	# O arquivo de configuração pode ser feito nos formatos Javascript , JSON ou YAML.
+	# ex:
+	$ pm2 [start|restart|stop|delete] ecosystem.config.js
+	
+	# para executar somente os processo apps que vc quer.
+	$ pm2 start ecosystem.config.yml --only app-1
+	$ pm2 start ecosystem.config.yml --only "app-1,app-2"
+
+	# para escolher quais variáveis de ambiente deseja utilizar
+	$ pm2 start ecosystem.config.yml --env homolog
+	$ pm2 start ecosystem.config.yml --env prod
+
+Autorestart
+	# Reiniciar caso atingir memória maxima
+	$ pm2 start index.js --name <NOME_DO_PROCESSO> --max-memory-restart 20M
+
+Delay de restart
+	# utilizado para aplicação aguardar antes do PM2 restartá-la em caso de erros.
+	$ pm2 start index.js --name <NOME_DO_PROCESSO> --restart-delay 100
+
+Estratégias de Backoff
+	# restart e icremente o tempo de delay sempre que tiver uma exceção.
+	$ pm2 start index.js --name <NOME_DO_PROCESSO> --exp-backoff-restart-delay 100
+
+PM2 com outras linguagens
+	$ pm2 start hello-world.py --interpreter=python

@@ -1,0 +1,31 @@
+app:
+  - name: app-1
+    script: .app-1/index.js
+    watch: ./
+    max_memory_restart: 20M
+    exec_mode: cluster
+    instances: 2
+    exp_backoff_restart_delay: 100,
+    env_prod:
+      ENVIRONMENT: PRODUCTION
+    env_homolog:
+      ENVIRONMENT: HOMOLOG
+
+    
+  - name: app-2
+    script: .app-2/index.js
+    watch: ./
+    max_memory_restart: 50M
+    exec_mode: cluster
+    exp_backoff_restart_delay: 100,
+    instances: 2
+    env_prod:
+      ENVIRONMENT: PRODUCTION
+    env_homolog:
+      ENVIRONMENT: HOMOLOG
+
+# Da para definir variáveis de ambiente utilizando: 
+# env_prod (para prudção)
+# env_homolog (homologação)
+
+# exp_backoff_restart_delay vai comçar em 100 vai para 150...
