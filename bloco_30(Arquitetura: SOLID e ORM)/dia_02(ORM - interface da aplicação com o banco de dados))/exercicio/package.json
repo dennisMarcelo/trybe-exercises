@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "clear; ./node_modules/mocha/bin/mocha ./tests/**/*$NAME*.test.js --exit",
     "start": "node index.js",
-    "start:dev": "./node_modules/nodemon/bin/nodemon.js index.js"
+    "start:dev": "./node_modules/nodemon/bin/nodemon.js index.js",
+    "sequelize": "./node_modules/sequelize-cli/lib/sequelize"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +21,11 @@
     "sequelize": "^6.6.5"
   },
   "devDependencies": {
-    "sequelize-cli": "^6.2.0"
+    "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
+    "mocha": "^9.1.2",
+    "sequelize-cli": "^6.2.0",
+    "sequelize-test-helpers": "^1.4.2",
+    "sinon": "^11.1.2"
   }
 }
