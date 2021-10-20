@@ -1,15 +1,16 @@
 {
-  "name": "dia_01(deploy-com-heroku)",
+  "name": "dia_01",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "pm2-runtime start ecosystem.config.js --env production"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "pm2": "^5.1.2"
   }
 }

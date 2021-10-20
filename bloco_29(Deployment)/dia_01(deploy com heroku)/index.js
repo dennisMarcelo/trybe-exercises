@@ -3,10 +3,11 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 const TEST = process.env.TEST || 'NÃO ESTA FUNCIONANDO'
+let cont = 1;
 
 app.get('/', (req, res) => {
-  let cont  = 1;
-  console.log('hello word!'+ cont);
+  console.log(cont+1);
+  console.log('hello word!');
   res.status(200).send('Pong!');
 })
 

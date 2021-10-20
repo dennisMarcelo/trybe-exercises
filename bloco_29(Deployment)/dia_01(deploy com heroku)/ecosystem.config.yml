@@ -1,0 +1,7 @@
+apps:
+  - name: dia_01
+    script: ./index.js
+    env_productio:
+      ENVIRONMENT: production
+      PM2_SECRET_KEY: 7gsz1dxreht7cnd
+      PM2_MACHINE_NAME: MY APP DEPLOYED
