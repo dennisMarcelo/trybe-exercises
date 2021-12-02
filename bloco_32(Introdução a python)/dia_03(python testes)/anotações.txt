@@ -1,0 +1,6 @@
+Na literatura encontramos as técnicas de dublê com os nomes mocks , fakes , stubs e spy , e de uma forma bem resumida podemos defini-las:
+
+fakes: objetos que possuem implementações funcionais, porém normalmente simplificadas;
+mocks: são pré programados para verificarem as chamadas das funções que receberem;
+stubs: proveem respostas predefinidas;
+spies: são como stubs, mas também armazenam informações de como foram chamados.
