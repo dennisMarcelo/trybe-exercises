@@ -1,0 +1,18 @@
+- O pilar de definir entidades chama-se 'Abstração'
+- O pilar que representa usar uma entidade sem ter que entender como ela funcionam se chama 'Encapsulamento'.
+
+Classe: Entidade "geral" que definimos com base no problema que queremos resolver.
+
+Objeto: Entidade "específica", criada a partir das regras definidas pela entidade "geral". Pense que a classe é o molde e o objeto a escultura que o molde faz!
+
+Instância: esse é novo! Sabe quando criamos um objeto a partir de uma classe! Então! Dizemos que esse objeto é uma instância dessa classe! Ou, também, dizemos que a classe instanciou um objeto!
+
+Atributo: outro novo! Um atributo é uma informação de uma instância que você criou. O nome de um User, por exemplo.
+
+Mensagem: Forma com que objetos interagem - chamando funções uns dos outros. Um chamado como esse é um envio de mensagem a outro objeto. "User, resete sua senha!"
+
+Abstração: Pilar da Programação Orientada a Objetos. Se refere a sempre criar entidades que farão as ações que resolverão seu problema.
+
+Classe: Uma classe consiste numa espécie de molde para criação de novos objetos, definindo seus atributos e métodos comuns que serão utilizados por ele.
+
+Construtor: É um método especial utilizado para inicializar instâncias de uma classe e que pode receber parâmetros usados para definir as informações armazenadas em seus atributos.
