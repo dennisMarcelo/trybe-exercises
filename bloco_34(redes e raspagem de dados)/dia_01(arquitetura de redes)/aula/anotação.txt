@@ -1,0 +1,1 @@
+Toda informção é trafegada pela rede através de 'pacotes' e é através dos 'protocolos' que esses pacotes são controlados. São os protocolos que definem as regras que os computadores devem seguir para transportar e montar os pacotes entre eles.

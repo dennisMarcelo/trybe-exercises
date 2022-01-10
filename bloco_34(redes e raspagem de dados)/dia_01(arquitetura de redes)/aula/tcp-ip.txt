@@ -1,0 +1,1 @@
+basicamente é uma implementação do modelo OSI
