@@ -9,7 +9,6 @@ def solve_expression(expr):
         if token == '+':
             # Sum operation
             result = stack.pop() + stack.pop()
-            print(result)
             stack.push(result)
         elif token == '*':
             # multiply operation
