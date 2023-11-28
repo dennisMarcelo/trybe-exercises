@@ -1,0 +1,4 @@
+A diferença entre:
+	- CMD -> Caso não seja passado nada como parametro ao subir o container ele é executado;
+	- ENTRYPOINT -> Tem compotamento padrão e sempre é executado independe se passar algum parametro ou não na hora que subir um container;
+	- RUN -> Geralmente utilizado para instalar dependecias de um projeto;
