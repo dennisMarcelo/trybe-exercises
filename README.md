@@ -8,8 +8,10 @@ Diretório destinado a exercícios na Trybe.
 - JavaScript,
 - React
 - Testes atomatizados (React).
+- python
 
 <h3> <img src="https://i.imgur.com/mhi3eei.png" height="20" width="25"> Back-End exercícios: </h3>
 
+- C#
 - NodeJS
 - MongoDB
