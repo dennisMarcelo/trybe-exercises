@@ -1,0 +1,9 @@
+O que são claims?
+Resposta: No universo .NET, as claims são as declarações de autorização que determinam as regras de segurança do software. As declarações possuem políticas de segurança que são as barreiras sobre quais pessoas podem utilizar uma funcionalidade.
+
+Classes mais importates na autenticação?
+Resposta: ClaimsPrincipal, ClaimsIdentity
+
+
+Relembrando🧠: Um dos métodos para realização de autenticação disponíveis no mercado é o JWT ou JSON Web Token, que funciona entre dois componentes em rede através de um token JSON.
+O Token JWT é composto por três partes: Header, Payload e Signature. O Payload é responsável por levar informações declarativas, no caso as Claims.

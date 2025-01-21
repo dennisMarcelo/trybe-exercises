@@ -1,0 +1,23 @@
+- O lado Has pode ser representado por HasOne (tem um) ou HasMany (tem vários). O lado With pode ser representado por WithOne (com um) ou WithMany(com vários).
+- 'HasOne' e 'WithOne' são usados para propriedades de navegação de referência, enquanto
+- 'HasMany' e 'WithMany' são usados para as propriedades de navegação de coleção.
+
+
+- Uma entidade é um objeto que mapeia uma ou mais tabelas de um banco de dados. Para conseguir manipulá-las no programa, vamos precisar mapeá-las em nosso context.
+
+- para criar um banco em memória utilize:
+  + 'dotnet add package Microsoft.EntityFrameworkCore.InMemory'
+
+- Durante a execução do nosso programa, o context fica rastreando todas as alterações efetuadas em qualquer entidade e altera o estado desses objetos. Quem é responsável por ficar observando essas alterações é uma classe chamada ChangeTracker.
+
+- O AsNoTracking() é um método de controle que retorna uma nova consulta, e seu retorno não será armazenado em cache pelo contexto.
+
+- no EntityFrameworkCore existe tres formas de carregar relacionamentos
+  + 'Lazy Loading' é a menos eficiente e deve se ter cuidado ao usar pos pode impactar no usa da aplicação
+  + 'Eager loading' é a mais eficiente e facil de usar basta colocar o 'Include()'
+  + 'Explicit Loading' diferente do 'Eager loading', ele permite recuperar relacionamentos expecificos, ao invés de recuperar todos os relacionamentos
+    # var query = context.Quizzes.First();
+      context.Entry(query).Collection(c => c.Questions).Load();
+    # outra formas
+    # var query = context.Quizzes.First();
+      var titles = context.Entry(query).Collection(c => c.Questions).Query().Select(x => x.Text).ToList();
